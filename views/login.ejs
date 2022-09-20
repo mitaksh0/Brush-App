@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="credentials_pg">
+    <h1>Log In </h1>
+    <form action="/login" method="post">
+        <label for="uerId">Username:</label>
+        <input type="text" name="username">
+        <br><br>
+        <label for="pass">Password:</label>
+        <input type="password" name="password">
+        <br><br>
+        <button class="subm_btn">Login</button>
+    </form>
+    <p>Don't have an account? <a style="border:none; padding:0px;" href="/register">Sign Up</a></p>
+</div>
+</body>
+</html>

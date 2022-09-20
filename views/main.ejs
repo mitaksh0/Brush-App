@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+    <% if (val) { %>
+        <script>
+           var newObj = <%-JSON.stringify(val)%>;
+        </script>
+   <% } %>
+
+   <div class="main_pg">
+    <div>
+        <div>
+            <p>Welcome <%=userN%>!</p>
+            <button class="subm_btn" onclick="clickedMe(canvas)">Save</button>
+            <a class="subm_btn" style="text-decoration:none; background-color:rgb(236, 40, 40); border:none;" href="/logout" role="button">Logout</a>
+        </div>
+    </div>
+
+
+    <!-- <p id="canvas-value">
+        <%if(val) {%>
+        <%=val%>
+        <%}%>
+    </p> -->
+    <br>
+    <div style="text-align:center;">
+    <form action="/home" method="get">
+        <label for="">Search for canvas:</label>
+        <input type="text" name="searchId" id="">
+        <button style="padding:5px 10px;" class="subm_btn" type="submit">Submit</button>
+    </form>
+    </div>
+    <div class="main">
+        <div>
+            <label for="">Set Background Color:</label>
+            <input type="color" value="#ffffff" onchange="setBgColor()" id="favColor">
+        </div>
+    <div class="first-tray">
+        <button onclick="toggleMode(modes.pan)">Toggle Pan</button>
+        <button onclick="toggleMode(modes.draw)">Draw</button>
+        <input id="colorPicker" value="#000000" data-jscolor="">
+        <select name="brushType" id="brushType">
+            <option selected>Pencil</option>
+            <option>Circle</option>
+            <option>Spray</option>
+        </select>
+        <input type="range" value="1" id="brushWid" name="brushWid" min="1" max="150">
+        <label for="brushWid" id="brushWidTxt"></label>
+
+    </div>
+
+    <div class="second-tray">
+        <button onclick="addRect(canvas)">Square</button>
+        <button onclick="addCirc(canvas)">Circle</button>
+        <button onclick="addText(canvas)">TextBox</button>
+        <input id="myImg" type="file" accept="image/*">
+    </div>
+
+    <div class="third-tray">
+        <button onclick="groupObj(canvas, group, true)">Group</button>
+        <button onclick="groupObj(canvas, group, false)">Ungroup</button>
+        <button onclick="clearCanvas(canvas, svgState)">Clear</button>
+        <button onclick="restoreCanvas(canvas, svgState)">Restore</button>
+    </div> 
+    <div class="canvas_div">
+    <canvas id="canvas"></canvas>
+    </div>
+    </div>
+
+    <div style="text-align:center;">
+    <p>Copy and share the following id to give access for this canvas to anyone: 
+        <br>
+        <%=userId%>
+    </p>
+    </div>
+    </div>
+
+<script src="/lib/jscolor.js"></script>
+<script src="/lib/fabric.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
