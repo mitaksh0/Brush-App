@@ -2,7 +2,7 @@
 async function clickedMe(canvas){
     const stateVal = canvas.toJSON();
 
-const response = await fetch("https://sleepy-cliffs-46276.herokuapp.com/save", {
+const response = await fetch("https://limitless-waters-33410.herokuapp.com/save", {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
