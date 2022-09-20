@@ -6,7 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 var bodyParser = require('body-parser');
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.set('view engine','ejs');
 app.use(express.json());
