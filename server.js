@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({
     extended: true
   }));
 app.use(express.static('public'));
-// app.use(bodyParser({limit: '50mb'}));
 app.use(session({
     secret: "This is a secret",
     resave: false,
