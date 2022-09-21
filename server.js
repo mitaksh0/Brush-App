@@ -10,13 +10,9 @@ const PORT = process.env.PORT || 3000;
 
 app.set('view engine','ejs');
 app.use(express.json());
-// app.use(express.urlencoded({extended:false},{limit:'50mb'}));
-app.use(bodyParser.urlencoded({
-    parameterLimit: 100000,
-    limit: '50mb',
-    extended: true
-  }));
-app.use(express.static('public'));
+app.use(express.urlencoded({extended:false}));
+app.use(express.bodyParser({limit: '50mb'}));
+app.use(express.static('public'));  
 app.use(session({
     secret: "This is a secret",
     resave: false,
