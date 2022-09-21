@@ -10,7 +10,12 @@ const PORT = process.env.PORT || 3000;
 
 app.set('view engine','ejs');
 app.use(express.json());
-app.use(express.urlencoded({extended:false},{limit:'100M'}));
+// app.use(express.urlencoded({extended:false},{limit:'50mb'}));
+app.use(bodyParser.urlencoded({
+    parameterLimit: 100000,
+    limit: '50mb',
+    extended: true
+  }));
 app.use(express.static('public'));
 // app.use(bodyParser({limit: '50mb'}));
 app.use(session({
