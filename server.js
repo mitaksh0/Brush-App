@@ -10,13 +10,13 @@ const PORT = process.env.PORT || 3000;
 
 app.set('view engine','ejs');
 // app.use(express.json({limit:'50mb'}));
-// app.use(bodyParser.json({limit: '50mb', extended: true}))
+app.use(bodyParser.json({limit: '50mb', extended: true}))/
 // app.use(express.urlencoded({extended:false}));
-// app.use(bodyParser.urlencoded({
-//     parameterLimit: 100000,
-//     limit: '50mb',
-//     extended: true
-//   }));
+app.use(bodyParser.urlencoded({
+    parameterLimit: 100000,
+    limit: '50mb',
+    extended: true
+  }));
 
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb',extended:false}));
@@ -121,6 +121,7 @@ app.post("/save",(req, res)=>{
     console.log(newVal);
     // console.log(val);
     // console.log(req.body.value);
+    console.log("work")
     const id = req.user.id;
     
     User.findById(id,(err,result)=>{
